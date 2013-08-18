@@ -15,6 +15,7 @@ It also includes a UDP port which can be used for the text to speech capabilitie
 
 # Packet Format 
 
+<pre>
  -------------------------------------------------------------------------------
 | magic byte | version  | lan ip | wifi ip | battery | cpu temp | wifi strength |
 |   uint8    |  uint8   | uint32 | uint32  |  int8   |  uint8   |    uint8      |
@@ -22,6 +23,7 @@ It also includes a UDP port which can be used for the text to speech capabilitie
 |   lan mac  | wifi mac |         host name          |  
 |  6x uint8  | 6x uint8 |    len(host name) + '\0'   |
  ----------------------------------------------------
+</pre>
 
 This format might change in the future to protobuf. All multi byte fields are in
 network byteorder. The battery field is signed to indicate that the robot is 
