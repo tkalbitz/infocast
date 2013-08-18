@@ -41,3 +41,6 @@ This format might change in the future to protobuf. All multi byte fields are in
 network byteorder. The battery field is signed to indicate that the robot is 
 charging (positive value) or discharging (negative value). 
 
+## Example GUI
+There exists an example QT4 GUI which is called NaoFinder. You can find it also
+on GitHub: https://github.com/tkalbitz/NaoFinder
