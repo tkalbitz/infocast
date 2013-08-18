@@ -1,5 +1,7 @@
 # Infocast
 
+## About
+
 Infocast is a self contained daemon used by the Nao-Team HTWK to see which 
 robots are connected to the network and to get some basic information. 
 This includes:
@@ -13,7 +15,17 @@ This includes:
 
 It also includes a UDP port which can be used for the text to speech capabilities of the bot.
 
-# Packet Format 
+## Building
+
+Just add the infocast subdirectory to your building environment via the CMake
+statement:
+
+<pre>add_subdirectory( "infocast" )</pre>
+
+You have to build it with the cross compile environment because of the 
+Aldebaran library dependencies.
+
+## Packet Format 
 
 <pre>
  -------------------------------------------------------------------------------
@@ -29,12 +41,3 @@ This format might change in the future to protobuf. All multi byte fields are in
 network byteorder. The battery field is signed to indicate that the robot is 
 charging (positive value) or discharging (negative value). 
 
-# Building
-
-Just add the infocast subdirectory to your building environment via the CMake
-statement:
-
-<pre>add_subdirectory( "infocast" )</pre>
-
-You have to build it with the cross compile environment because of the 
-Aldebaran library dependencies.
