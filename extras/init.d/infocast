@@ -1,0 +1,22 @@
+#!/sbin/runscript
+
+depend() {
+        after naoqi
+        need net
+}
+
+start() {
+        ebegin "Starting Infocast"
+
+        start-stop-daemon --start -b \
+                --exec /home/nao/infocast
+        eend $?
+}
+
+stop() {
+        ebegin "Shutting down Infocast"
+        start-stop-daemon --stop \
+                --exec /home/nao/infocast
+        eend 0
+}
+

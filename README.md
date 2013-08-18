@@ -25,6 +25,8 @@ statement:
 You have to build it with the cross compile environment because of the 
 Aldebaran library dependencies.
 
+Everything to run infocast as a daemon can be found in subdirectory extras.
+
 ## Packet Format 
 
 <pre>

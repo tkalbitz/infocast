@@ -40,10 +40,14 @@ void parse_options(int argc, char** argv)
         ("sayPort,s",       boost::program_options::value<uint16_t>()->default_value(5882), "Set port to send say text to")
     ;
 
-    boost::program_options::variables_map varmap; // this stores the actual arguments values
+    boost::program_options::variables_map varmap; 
     boost::program_options::store(boost::program_options::parse_command_line(argc, argv, arguments_description), varmap);
-    boost::program_options::store(boost::program_options::parse_config_file<char>("/etc/default/infocast", arguments_description), varmap);
-    boost::program_options::notify(varmap); // update the varmap
+
+    if(access("/etc/default/infocast", R_OK) == 0) {
+	boost::program_options::store(boost::program_options::parse_config_file<char>("/etc/default/infocast", arguments_description), varmap);
+    }
+
+    boost::program_options::notify(varmap); 
 
     multicast_ip   = varmap["multicastIp"].as<std::string>();
     multicast_port = varmap["multicastPort"].as<uint16_t>();
